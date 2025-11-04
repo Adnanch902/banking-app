@@ -17,8 +17,8 @@ jobs:
         image: postgres:16
         env:
           POSTGRES_DB: bankdb
-          POSTGRES_USER: sa
-          POSTGRES_PASSWORD: secret
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
         ports:
           - "5432:5432"
         options: >-
