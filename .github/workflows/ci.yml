@@ -48,6 +48,7 @@ jobs:
       - name: Build & Test (Maven)
         run: mvn -B verify   # ✅ FIXED
 
+
       - name: Docker build
         run: docker build -t banking-app .
 
