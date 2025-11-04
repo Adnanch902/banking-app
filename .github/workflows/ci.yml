@@ -28,7 +28,7 @@ jobs:
           --health-retries=5
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up JDK 21
@@ -41,12 +41,12 @@ jobs:
       - name: Wait for PostgreSQL
         run: |
           until pg_isready -h localhost -p 5432 -U sa; do
-            echo "⏳ Waiting for PostgreSQL..."
+            echo "Waiting for PostgreSQL..."
             sleep 2
           done
 
       - name: Build & Test (Maven)
-        run: ./mvnw -B verify
+        run: mvn -B verify   # ✅ FIXED
 
       - name: Docker build
         run: docker build -t banking-app .
@@ -59,10 +59,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Tag Docker image
-        run: |
-          IMAGE=ghcr.io/${{ github.repository }}:latest
-          echo "Image = $IMAGE"
-          docker tag banking-app $IMAGE
+        run: docker tag banking-app ghcr.io/${{ github.repository }}:latest
 
       - name: Push Docker image
         run: docker push ghcr.io/${{ github.repository }}:latest
