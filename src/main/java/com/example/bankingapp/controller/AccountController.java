@@ -36,7 +36,7 @@ public class AccountController {
         return ResponseEntity.ok(service.closeAccount(accountNumber));
     }
 
-    @PostMapping("/close/{accountNumber}")
+    @PostMapping("/inquire/{accountNumber}")
     public ResponseEntity<AccountResponse> inquire(@PathVariable String accountNumber) {
         return ResponseEntity.ok(service.inquireAccount(accountNumber));
     }
