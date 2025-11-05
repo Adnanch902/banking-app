@@ -68,7 +68,7 @@ public class AccountService {
         accountRepository.save(account);
 
         createTransaction(account, "WITHDRAW", req.amount(), account.getBalance());
-        log.info("Withdrew {} from account {}", req.amount(), req.accountNumber());
+        log.info("Withdraw {} from account {}", req.amount(), req.accountNumber());
         return toDto(account);
     }
 

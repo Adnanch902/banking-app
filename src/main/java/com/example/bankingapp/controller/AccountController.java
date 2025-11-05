@@ -31,7 +31,7 @@ public class AccountController {
         return ResponseEntity.ok(service.withdraw(req));
     }
 
-    @PutMapping("/{number}/close")
+    @PutMapping("/{accountNumber}/close")
     public ResponseEntity<AccountResponse> close(@PathVariable String accountNumber) {
         return ResponseEntity.ok(service.closeAccount(accountNumber));
     }

@@ -10,6 +10,19 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
+
+#    datasource:
+#      url: ${DB_URL:jdbc:postgresql://localhost:5432/bankdb}
+#      username: ${DB_USER:sa}
+#      password: ${DB_PASSWORD:secret}
+#      driver-class-name: ${DB_DRIVER:org.postgresql.Driver}
+#
+#      jpa:
+#        hibernate:
+#          ddl-auto: update
+#        database-platform: ${DB_DIALECT:org.hibernate.dialect.PostgreSQLDialect}
+#        show-sql: false
+
   h2:
     console:
       enabled: true  # Access at /h2-console
