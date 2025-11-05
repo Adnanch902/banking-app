@@ -87,7 +87,7 @@ public class AccountService {
         Customer customer = customerRepository.findByCustomerId(req.customerId())
                 .orElseThrow(() -> new ResourceNotFoundException("Customer not found: " + req.customerId()));
         Account account = new Account();
-        account.setAccountType(req.accountType().toUpperCase());
+        account.setAccountType(req.accountType());
         account.setCustomer(customer);
         account.setStatus(AccountStatus.ACTIVE);
         account.setBalance(BigDecimal.ONE);

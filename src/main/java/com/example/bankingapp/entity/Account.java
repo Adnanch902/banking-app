@@ -1,6 +1,7 @@
 package com.example.bankingapp.entity;
 
 import com.example.bankingapp.utils.AccountStatus;
+import com.example.bankingapp.utils.AccountType;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,7 +18,8 @@ public class Account {
     private String accountNumber; // business-friendly account number
 
     @Column(nullable = false)
-    private String accountType; // SAVINGS, CURRENT
+    @Enumerated(EnumType.STRING)
+    private AccountType accountType; // SAVINGS, CURRENT
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

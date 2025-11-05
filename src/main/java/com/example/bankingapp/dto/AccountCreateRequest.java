@@ -1,4 +1,6 @@
 package com.example.bankingapp.dto;
 
-public record AccountCreateRequest(String customerId, String accountType) {
+import com.example.bankingapp.utils.AccountType;
+
+public record AccountCreateRequest(String customerId, AccountType accountType) {
 }

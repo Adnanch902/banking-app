@@ -1,12 +1,13 @@
 package com.example.bankingapp.dto;
 
 import com.example.bankingapp.utils.AccountStatus;
+import com.example.bankingapp.utils.AccountType;
 
 import java.math.BigDecimal;
 
 public record AccountResponse(
         String accountNumber,
-        String accountType,
+        AccountType accountType,
         AccountStatus status,
         BigDecimal balance,
         String customerId,
