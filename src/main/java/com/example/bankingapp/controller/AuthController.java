@@ -1,5 +1,7 @@
 package com.example.bankingapp.controller;
 
+import com.example.bankingapp.dto.LoginRequest;
+import com.example.bankingapp.dto.LoginResponse;
 import com.example.bankingapp.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +18,10 @@ public class AuthController {
     private final JwtUtil jwtUtil;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginReq req) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest req) {
         Authentication auth = authMgr.authenticate(
                 new UsernamePasswordAuthenticationToken(req.username(), req.password()));
-        return ResponseEntity.ok(new LoginRes(jwtUtil.generateToken(auth)));
+        return ResponseEntity.ok(new LoginResponse(jwtUtil.generateToken(auth)));
     }
 
-    record LoginReq(String username, String password) {}
-    record LoginRes(String token) {}
 }
